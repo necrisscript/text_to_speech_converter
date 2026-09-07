@@ -4,6 +4,12 @@ import os
 from gtts import gTTS
 from pypdf import PdfReader
 
+SUPPORTED_LANGUAGES = {
+    "en": "English",
+    "es": "Spanish",
+    "pt": "Portuguese",
+}
+
 
 def read_file(filename):
     extension = os.path.splitext(filename)[1].lower()
@@ -45,6 +51,11 @@ def split_text(text, limit=4000):
 
 
 def convert_file(input_file, language="en"):
+    if language not in SUPPORTED_LANGUAGES:
+        raise ValueError(
+            f"Unsupported language. Choose from: {list(SUPPORTED_LANGUAGES.keys())}"
+        )
+
     if not os.path.isfile(input_file):
         raise FileNotFoundError(
             f"File not found: {input_file}"
