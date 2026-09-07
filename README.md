@@ -1,89 +1,97 @@
-# Necris TTS
+# Text-to-Speech Converter
 
- A simple desktop application for converting `.txt` and `.pdf` files to MP3 using Google Text-to-Speech.
+A simple desktop application for converting `.txt` and `.pdf` files to MP3 using Google Text-to-Speech.
 
- ## 🚀 Features
+## 🚀 Features
 
- - Convert `.txt` files to MP3
-- Convert `.pdf` files to MP3
-- Multiple language support
-- Dark-themed interface
-- Background conversion to keep the interface responsive
-- Linux AppImage distribution
+* Convert `.txt` files to MP3
+* Convert `.pdf` files to MP3
+* Multiple language support
+* Dark-themed interface
+* Background conversion to keep the interface responsive
+* Linux AppImage distribution
 
- ## 📦 Installation
+## 📦 Installation
 
- ### AppImage
+### AppImage
 
- Download the latest AppImage from the Releases page.
+Download the latest AppImage from the Releases page.
 
- Make it executable:
+Make it executable:
 
-```
-chmod +x Necris_TTS-x86_64.AppImage
-```
-
- Run the application:
+```bash
+chmod +x Text_To_Speech_Converter-x86_64.AppImage
 
 ```
-./Necris_TTS-x86_64.AppImage
-```
 
- ## 🛠️ Development
+Run the application:
 
- Clone the repository:
-
-```
-git clone https://github.com/necrissript/necris_tts.git
-cd necris_tts
-```
-
- Create and activate a virtual environment:
+```bash
+./Text_To_Speech_Converter-x86_64.AppImage
 
 ```
+
+## 🛠️ Development
+
+Clone the repository:
+
+```bash
+git clone https://github.com/necrisscript/text-to-speech-converter.git
+cd text-to-speech-converter
+
+```
+
+Create and activate a virtual environment:
+
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
-```
-
- Install the dependencies:
 
 ```
+
+Install the dependencies:
+
+```bash
 pip install -r requirements.txt
-```
-
- Run the application:
 
 ```
+
+Run the application:
+
+```bash
 python main.py
-```
-
- ## 🔨 Build
-
- The project uses PyInstaller to create the Linux executable and linuxdeploy to package it as an AppImage.
-
- Build the executable:
 
 ```
-pyinstaller --clean necris_tts.spec
+
+## 🔨 Build
+
+The project uses PyInstaller to create the Linux executable and linuxdeploy to package it as an AppImage.
+
+Build the executable:
+
+```bash
+pyinstaller --clean text_to_speech_converter.spec
+
 ```
 
- The executable will be generated in:
+The executable will be generated in:
+
+```bash
+dist/text-to-speech-converter
 
 ```
-dist/necris-tts
-```
 
- The resulting AppImage can then be generated using linuxdeploy.
+The resulting AppImage can then be generated using linuxdeploy.
 
- ## ⚠️ Notes
+## ⚠️ Notes
 
- Necris TTS uses Google Text-to-Speech and requires an active Internet connection for text-to-speech conversion.
+This application uses Google Text-to-Speech and requires an active Internet connection for text-to-speech conversion.
 
- Supported input formats:
+Supported input formats:
 
-- `.txt`
-- `.pdf`
+* `.txt`
+* `.pdf`
 
- ## 📄 License
+## 📄 License
 
- This project is licensed under the terms of the LICENSE file.
+This project is licensed under the MIT License — see the LICENSE file for details.
