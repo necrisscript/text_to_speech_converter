@@ -107,9 +107,9 @@ class TTSLayout(BoxLayout):
 
     def get_language_code(self):
         language_codes = {
-            "English",
-            "Spanish",
-            "Portuguese"
+            "English": "en",
+            "Spanish": "es",
+            "Portuguese": "pt",
         }
 
         selected_language = self.ids.language_spinner.text
@@ -118,6 +118,7 @@ class TTSLayout(BoxLayout):
             selected_language,
             "en",
         )
+
 
 
 class NecrisTTSApp(App):
