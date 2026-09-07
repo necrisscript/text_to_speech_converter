@@ -1,0 +1,146 @@
+#:import dp kivy.metrics.dp
+
+<LanguageSpinnerOption@SpinnerOption>:
+    background_normal: ""
+    background_color: RED_2
+    color: FOREGROUND
+    font_size: "15sp"
+    text_size: self.size
+    halign: "center"
+    valign: "middle"
+    padding: 0, 0
+    height: dp(44)
+
+<TTSLayout>:
+    orientation: "vertical"
+    padding: dp(12)
+    spacing: dp(10)
+
+    canvas.before:
+        Color:
+            rgba: BACKGROUND
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        text: "NECRIS TTS"
+        color: FOREGROUND
+        font_size: "24sp"
+        bold: True
+        size_hint_y: None
+        height: dp(48)
+
+    Label:
+        text: "Text and PDF to speech converter"
+        color: RED_7
+        font_size: "14sp"
+        size_hint_y: None
+        height: dp(28)
+
+    BoxLayout:
+        orientation: "horizontal" if self.width >= dp(650) else "vertical"
+        spacing: dp(10)
+
+        FileChooserListView:
+            id: file_chooser
+            path: app.user_data_dir
+            filters: ["*.txt", "*.pdf"]
+            multiselect: False
+            size_hint_x: 0.65 if self.parent.width >= dp(650) else 1
+            size_hint_y: 1
+
+        BoxLayout:
+            orientation: "vertical"
+            spacing: dp(10)
+            padding: dp(5)
+
+            size_hint_x: 0.35 if self.parent.width >= dp(650) else 1
+            size_hint_y: 1
+
+            Label:
+                text: "Selected file"
+                color: FOREGROUND
+                bold: True
+                halign: "left"
+                valign: "middle"
+                text_size: self.size
+                size_hint_y: None
+                height: dp(32)
+
+            Label:
+                text: root.selected_file if root.selected_file else "No file selected"
+                color: RED_8
+                halign: "left"
+                valign: "top"
+                text_size: self.width, None
+                shorten: True
+                shorten_from: "right"
+                size_hint_y: None
+                height: dp(55)
+
+            Label:
+                text: "Language"
+                color: FOREGROUND
+                bold: True
+                halign: "left"
+                valign: "middle"
+                text_size: self.size
+                size_hint_y: None
+                height: dp(32)
+
+            Spinner:
+                id: language_spinner
+                text: "English"
+                values:
+                    [
+                    "English",
+                    "Spanish",
+                    "Portuguese"
+                    ]
+                option_cls: "LanguageSpinnerOption"
+                color: FOREGROUND
+                background_normal: ""
+                background_color: RED_2
+                font_size: "16sp"
+                text_size: self.size
+                halign: "center"
+                valign: "middle"
+                padding: 0, 0
+                size_hint_y: None
+                height: dp(48)
+
+            Button:
+                text: "Select File"
+                color: FOREGROUND
+                background_normal: ""
+                background_color: RED_2
+                font_size: "15sp"
+                size_hint_y: None
+                height: dp(48)
+                disabled: root.is_converting
+                on_release: root.select_file()
+
+            Button:
+                text: "Convert to MP3"
+                color: BACKGROUND
+                background_normal: ""
+                background_color: CURSOR
+                font_size: "15sp"
+                bold: True
+                size_hint_y: None
+                height: dp(48)
+                disabled: root.is_converting
+                on_release: root.start_conversion()
+
+            Widget:
+
+            Label:
+                text: root.status
+                color: RED_7
+                halign: "left"
+                valign: "top"
+                text_size: self.width, None
+                size_hint_y: None
+                height: dp(75)
+
