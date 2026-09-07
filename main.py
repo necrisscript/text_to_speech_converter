@@ -1,4 +1,5 @@
 import os
+import sys
 import threading
 
 from kivy.app import App
@@ -10,11 +11,26 @@ from kivy.uix.boxlayout import BoxLayout
 from app.services.tts_services import convert_file
 
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-UI_DIR = os.path.join(BASE_DIR, "app", "ui")
+def resource_path(relative_path):
+    """
+    Returns the absolute path to a resource.
+
+    Works both when running from the source tree and
+    when packaged with PyInstaller.
+    """
+    if hasattr(sys, "_MEIPASS"):
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.path.dirname(os.path.abspath(__file__))
+
+    return os.path.join(base_path, relative_path)
+
+
+UI_DIR = resource_path(os.path.join("app", "ui"))
 
 THEME_FILE = os.path.join(UI_DIR, "theme.kv")
 MAIN_KV_FILE = os.path.join(UI_DIR, "main.kv")
+
 
 # Load the theme before the main layout.
 Builder.load_file(THEME_FILE)
@@ -91,14 +107,9 @@ class TTSLayout(BoxLayout):
 
     def get_language_code(self):
         language_codes = {
-            "English": "en",
-            "French": "fr",
-            "Spanish": "es",
-            "German": "de",
-            "Italian": "it",
-            "Portuguese": "pt",
-            "Arabic": "ar",
-            "Hindi": "hi",
+            "English",
+            "Spanish",
+            "Portuguese"
         }
 
         selected_language = self.ids.language_spinner.text
@@ -118,4 +129,3 @@ class NecrisTTSApp(App):
 
 if __name__ == "__main__":
     NecrisTTSApp().run()
-
