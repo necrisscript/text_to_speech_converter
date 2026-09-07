@@ -1,15 +1,5 @@
 #:import dp kivy.metrics.dp
-
-<LanguageSpinnerOption@SpinnerOption>:
-    background_normal: ""
-    background_color: RED_2
-    color: FOREGROUND
-    font_size: "15sp"
-    text_size: self.size
-    halign: "center"
-    valign: "middle"
-    padding: 0, 0
-    height: dp(44)
+#:import webbrowser webbrowser
 
 <TTSLayout>:
     orientation: "vertical"
@@ -23,20 +13,59 @@
             pos: self.pos
             size: self.size
 
+    # Top Bar: Language Switcher
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_y: None
+        height: dp(35)
+        spacing: dp(5)
+
+        Widget:
+
+        Button:
+            text: "EN"
+            size_hint_x: None
+            width: dp(40)
+            background_normal: ""
+            background_color: RED_5 if root.current_lang == "en" else RED_2
+            color: FOREGROUND
+            bold: True
+            on_release: root.change_language("en")
+
+        Button:
+            text: "ES"
+            size_hint_x: None
+            width: dp(40)
+            background_normal: ""
+            background_color: RED_5 if root.current_lang == "es" else RED_2
+            color: FOREGROUND
+            bold: True
+            on_release: root.change_language("es")
+
+        Button:
+            text: "PT"
+            size_hint_x: None
+            width: dp(40)
+            background_normal: ""
+            background_color: RED_5 if root.current_lang == "pt" else RED_2
+            color: FOREGROUND
+            bold: True
+            on_release: root.change_language("pt")
+
     Label:
-        text: "NECRIS TTS"
+        text: "TEXT-TO-SPEECH CONVERTER"
         color: FOREGROUND
         font_size: "24sp"
         bold: True
         size_hint_y: None
-        height: dp(48)
+        height: dp(40)
 
     Label:
-        text: "Text and PDF to speech converter"
+        text: root.t_subtitle
         color: RED_7
         font_size: "14sp"
         size_hint_y: None
-        height: dp(28)
+        height: dp(24)
 
     BoxLayout:
         orientation: "horizontal" if self.width >= dp(650) else "vertical"
@@ -59,7 +88,7 @@
             size_hint_y: 1
 
             Label:
-                text: "Selected file"
+                text: root.t_selected_file_label
                 color: FOREGROUND
                 bold: True
                 halign: "left"
@@ -69,7 +98,7 @@
                 height: dp(32)
 
             Label:
-                text: root.selected_file if root.selected_file else "No file selected"
+                text: root.selected_file_display if root.selected_file_display else root.t_no_file
                 color: RED_8
                 halign: "left"
                 valign: "top"
@@ -80,7 +109,7 @@
                 height: dp(55)
 
             Label:
-                text: "Language"
+                text: root.t_language
                 color: FOREGROUND
                 bold: True
                 halign: "left"
@@ -111,7 +140,7 @@
                 height: dp(48)
 
             Button:
-                text: "Select File"
+                text: root.t_select_btn
                 color: FOREGROUND
                 background_normal: ""
                 background_color: RED_2
@@ -122,7 +151,7 @@
                 on_release: root.select_file()
 
             Button:
-                text: "Convert to MP3"
+                text: root.t_convert_btn
                 color: BACKGROUND
                 background_normal: ""
                 background_color: CURSOR
@@ -144,3 +173,24 @@
                 size_hint_y: None
                 height: dp(75)
 
+    # Bottom Footer Signature (MIT Corporate)
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_y: None
+        height: dp(30)
+        padding: dp(10)
+
+        Widget:
+
+        Button:
+            text: "MIT LICENSE © necrisscript — LICENSED FOR COMMERCIAL USE"
+            color: RED_7
+            background_normal: ""
+            background_color: 0, 0, 0, 0
+            font_size: "11sp"
+            bold: True
+            size_hint: None, None
+            size: self.texture_size[0] + dp(10), dp(30)
+            on_release: webbrowser.open("https://github.com/necrisscript")
+
+        Widget:
