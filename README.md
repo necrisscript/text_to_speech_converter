@@ -2,6 +2,8 @@
 
 A simple desktop application for converting `.txt` and `.pdf` files to MP3 using Google Text-to-Speech.
 
+![Text-to-Speech Converter Preview](assets/screenshot.png)
+
 ## 🚀 Features
 
 * Convert `.txt` files to MP3
