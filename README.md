@@ -1,5 +1,4 @@
-# Convertidor de texto a voz
-
+# Text to Speech Converter
 Una aplicación de escritorio sencilla para convertir archivos `.txt` y `.pdf` a MP3 usando Google Text-to-Speech.
 
 ![Vista previa de Text-to-Speech Converter](assets/screenshot.png)
