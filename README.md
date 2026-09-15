@@ -1,99 +1,95 @@
-# Text-to-Speech Converter
+# Convertidor de texto a voz
 
-A simple desktop application for converting `.txt` and `.pdf` files to MP3 using Google Text-to-Speech.
+Una aplicación de escritorio sencilla para convertir archivos `.txt` y `.pdf` a MP3 usando Google Text-to-Speech.
 
-![Text-to-Speech Converter Preview](assets/screenshot.png)
+![Vista previa de Text-to-Speech Converter](assets/screenshot.png)
 
-## 🚀 Features
+## 🚀 Funcionalidades
 
-* Convert `.txt` files to MP3
-* Convert `.pdf` files to MP3
-* Multiple language support
-* Dark-themed interface
-* Background conversion to keep the interface responsive
-* Linux AppImage distribution
+* Convierte archivos `.txt` a MP3.
+* Convierte archivos `.pdf` a MP3.
+* Soporte para varios idiomas.
+* Interfaz con tema oscuro.
+* Conversión en segundo plano para mantener la interfaz fluida.
+* Distribución en formato AppImage para Linux.
 
-## 📦 Installation
+## 📦 Instalación
 
 ### AppImage
 
-Download the latest AppImage from the Releases page.
+Descarga la última versión de la AppImage desde la página de [Releases](https://github.com/necrisscript/text-to-speech-converter/releases).
 
-Make it executable:
+Dale permisos de ejecución:
 
 ```bash
 chmod +x Text_To_Speech_Converter-x86_64.AppImage
-
 ```
 
-Run the application:
+Ejecuta la aplicación:
 
 ```bash
 ./Text_To_Speech_Converter-x86_64.AppImage
-
 ```
 
-## 🛠️ Development
+## 🛠️ Desarrollo
 
-Clone the repository:
+Clona el repositorio:
 
 ```bash
 git clone https://github.com/necrisscript/text-to-speech-converter.git
 cd text-to-speech-converter
-
 ```
 
-Create and activate a virtual environment:
+Crea y activa un entorno virtual:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-
 ```
 
-Install the dependencies:
+Instala las dependencias:
 
 ```bash
 pip install -r requirements.txt
-
 ```
 
-Run the application:
+Ejecuta la aplicación:
 
 ```bash
 python main.py
-
 ```
 
-## 🔨 Build
+## 🔨 Compilación
 
-The project uses PyInstaller to create the Linux executable and linuxdeploy to package it as an AppImage.
+El proyecto utiliza PyInstaller para crear el ejecutable de Linux y linuxdeploy para empaquetarlo como una AppImage.
 
-Build the executable:
+Genera el ejecutable:
 
 ```bash
 pyinstaller --clean text_to_speech_converter.spec
-
 ```
 
-The executable will be generated in:
+El ejecutable se generará en:
 
 ```bash
 dist/text-to-speech-converter
-
 ```
 
-The resulting AppImage can then be generated using linuxdeploy.
+Después, puedes generar la AppImage resultante usando linuxdeploy.
 
-## ⚠️ Notes
+## ⚠️ Notas
 
-This application uses Google Text-to-Speech and requires an active Internet connection for text-to-speech conversion.
+Esta aplicación utiliza Google Text-to-Speech, por lo que necesita una conexión a Internet activa para convertir el texto en audio.
 
-Supported input formats:
+Formatos de entrada compatibles:
 
 * `.txt`
 * `.pdf`
 
-## 📄 License
+## 🧪 Estado del proyecto
 
-This project is licensed under the MIT License — see the LICENSE file for details.
+Este proyecto fue creado principalmente para experimentar, aprender y pasar un buen rato programando con *vibe coding*. Es funcional, pero no pretende ser una solución profesional ni estar listo para entornos de producción. Siéntete libre de usarlo, modificarlo y romper cosas bajo tu propia responsabilidad.
+
+## 📄 Licencia
+
+Este proyecto está distribuido bajo la licencia MIT. Consulta el archivo `LICENSE` para más información.
