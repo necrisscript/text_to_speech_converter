@@ -86,10 +86,6 @@ Formatos de entrada compatibles:
 * `.txt`
 * `.pdf`
 
-## 🧪 Estado del proyecto
-
-Este proyecto fue creado principalmente para experimentar, aprender y pasar un buen rato programando con *vibe coding*. Es funcional, pero no pretende ser una solución profesional ni estar listo para entornos de producción. Siéntete libre de usarlo, modificarlo y romper cosas bajo tu propia responsabilidad.
-
 ## 📄 Licencia
 
 Este proyecto está distribuido bajo la licencia MIT. Consulta el archivo `LICENSE` para más información.
